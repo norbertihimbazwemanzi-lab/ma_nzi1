@@ -1,0 +1,343 @@
+{
+  "developerInfo": {
+    "name": "Ihimbazwe Manzi Norbert",
+    "shortName": "Manzi Norbert",
+    "title": "Full-Stack Developer & School Systems Specialist",
+    "location": "Runda, Rwanda",
+    "email": "norbertihimbazwemanzi@gmail.com",
+    "phone": "+250 780 000 000",
+    "bio": "Full-stack developer from Runda with hands-on expertise building enterprise-grade School Management Systems and modern web applications. Proficient in React.js, Vue.js, JavaScript, PHP, and MySQL database architecture. Focused on automating school administration, student grading, daily attendance, and financial reconciliation for educational institutions.",
+    "avatarUrl": "/src/assets/images/developer_portrait_1791620332954.jpg",
+    "socialLinks": {
+      "github": "https://github.com/manzi-norbert",
+      "linkedin": "https://linkedin.com/in/ihimbazwe-manzi-norbert",
+      "whatsapp": "https://wa.me/250780000000",
+      "twitter": "https://x.com/manzi_norbert"
+    },
+    "familyInfo": {
+      "title": "Family & Roots in Runda",
+      "subtitle": "My support system, inspiration, and heritage in Kamonyi District, Rwanda.",
+      "images": [
+        {
+          "url": "/src/assets/images/family_portrait_norbert_1791622389479.jpg",
+          "caption": "Our Family in Rwanda - The cornerstone of my work ethics and integrity.",
+          "tag": "Family Portrait"
+        },
+        {
+          "url": "/src/assets/images/family_runda_home_1791622402396.jpg",
+          "caption": "Gathering at our family homestead in Runda, Kamonyi hills.",
+          "tag": "Runda Homestead"
+        }
+      ],
+      "contacts": [
+        {
+          "label": "Family Representative / Parents",
+          "name": "Mr. & Mrs. Ihimbazwe",
+          "phone": "+250 788 456 789",
+          "location": "Runda Sector, Kamonyi District, Rwanda",
+          "role": "Primary Family & Emergency Contact"
+        },
+        {
+          "label": "Family Residence / Postal",
+          "name": "Ihimbazwe Family Estate",
+          "phone": "+250 788 123 456",
+          "location": "Near Runda Center, Kamonyi / Kigali Corridor",
+          "role": "Official Home Reference"
+        }
+      ],
+      "friends": [
+        {
+          "id": "friend-1",
+          "name": "Runda Tech Study Group & Peers",
+          "role": "Software Engineering Cohort & Close Friends",
+          "phone": "+250 788 112 233",
+          "location": "Runda & Kigali, Rwanda",
+          "image": "/src/assets/images/friends_cohort_runda_1791623326018.jpg",
+          "note": "Fellow developers and classmates collaborating on school software systems, code reviews, and programming sessions."
+        },
+        {
+          "id": "friend-2",
+          "name": "Christian Mugabo",
+          "role": "Full-Stack Developer & Peer from Runda",
+          "phone": "+250 788 223 344",
+          "location": "Kamonyi / Kigali",
+          "image": "/src/assets/images/developer_portrait_1791620332954.jpg",
+          "note": "Classmate and longtime friend sharing practical web development and MySQL project experiments."
+        },
+        {
+          "id": "friend-3",
+          "name": "Diane Uwamahoro",
+          "role": "Database & UI Design Colleague",
+          "phone": "+250 788 334 455",
+          "location": "Runda Sector",
+          "image": "/src/assets/images/friends_cohort_runda_1791623326018.jpg",
+          "note": "Study partner passionate about educational software accessibility and student grade management."
+        }
+      ]
+    }
+  },
+  "projects": [
+    {
+      "id": "edurunda-sms",
+      "title": "EduRunda Enterprise School Management System",
+      "category": "school",
+      "categoryLabel": "School Management System",
+      "tagline": "All-in-one institutional ERP for student enrollment, attendance tracking, and academic records.",
+      "description": "A comprehensive web-based school management system built with PHP, MySQL, and a modern responsive frontend. Automates student registration, class allocation, teacher assignments, and administrative workflows.",
+      "fullOverview": "EduRunda SMS was engineered to streamline daily operations in primary and secondary schools. It replaces error-prone paper registers and fragmented spreadsheets with a centralized, multi-role portal for administrators, headteachers, instructors, and parents. Includes automated student ID generation, timetable scheduling, and emergency communication logs.",
+      "image": "/src/assets/images/school_erp_dashboard_1791620350520.jpg",
+      "role": "Lead Full-Stack Architect",
+      "year": "2025 - 2026",
+      "status": "Production Ready",
+      "technologies": ["PHP 8", "MySQL", "JavaScript", "React.js", "Tailwind CSS", "REST API", "Apache/XAMPP"],
+      "keyFeatures": [
+        "Student Enrollment & Biographical Profiling with photo and guardian records",
+        "Class & Section Allocation with maximum capacity enforcement",
+        "Teacher & Staff Duty Allocation with subject assignment matrix",
+        "Role-Based Access Control (Admin, Headteacher, Teacher, Bursar, Parent)",
+        "Automated Semester Promotion & Archival of historical student records",
+        "Data export to PDF and Excel for ministry and district compliance"
+      ],
+      "databaseSchema": [
+        {
+          "table": "students",
+          "columns": ["id (INT PK)", "reg_number (VARCHAR UNIQUE)", "first_name", "last_name", "gender", "dob", "class_id (FK)", "guardian_phone", "status"],
+          "description": "Stores primary student demographics and academic status."
+        },
+        {
+          "table": "classes",
+          "columns": ["id (INT PK)", "class_name", "stream_name", "academic_year", "teacher_id (FK)", "capacity"],
+          "description": "Defines cohorts, class streams, and responsible class masters."
+        },
+        {
+          "table": "teachers",
+          "columns": ["id (INT PK)", "employee_code", "full_name", "email", "phone", "specialization", "hire_date"],
+          "description": "Faculty directory and subject specialization tracking."
+        }
+      ],
+      "demoAvailable": true
+    },
+    {
+      "id": "academix-grading",
+      "title": "Academix Automated Grading & Report Card Engine",
+      "category": "school",
+      "categoryLabel": "Academic Analytics & Grading",
+      "tagline": "Automated Rwandan curriculum grade calculation, term GPA rankings, and print-ready PDF report cards.",
+      "description": "An academic processing module engineered to compute continuous assessments, term exam marks, weighted percentages, subject rankings, and generate professional printable report cards in seconds.",
+      "fullOverview": "Designed to eliminate manual calculation errors during peak end-of-term grading periods. Teachers enter quiz, midterm, and final exam marks via an intuitive spreadsheet-style interface. The system calculates standardized weighted scores, assigns letter grades, assigns class rank, and compiles headmaster remarks into official report cards ready for printing.",
+      "image": "/src/assets/images/grading_report_system_1791620363654.jpg",
+      "role": "Full-Stack Developer",
+      "year": "2025",
+      "status": "Production Ready",
+      "technologies": ["React.js", "PHP", "MySQL", "FPDF/TCPDF", "JavaScript", "Tailwind CSS"],
+      "keyFeatures": [
+        "Dynamic grade boundary configuration (A: 80-100%, B: 70-79%, C: 60-69%, etc.)",
+        "Automated weighted scoring (40% Continuous Assessment + 60% Final Exam)",
+        "Instant Class Ranking and Top Performer leaderboards",
+        "Automated behavior and conduct remark generator based on performance metrics",
+        "One-click batch PDF report card generation for entire classrooms",
+        "Parent SMS preview summary of student final standing"
+      ],
+      "databaseSchema": [
+        {
+          "table": "grades",
+          "columns": ["id (INT PK)", "student_id (FK)", "subject_id (FK)", "term_id (FK)", "assessment_score", "exam_score", "total_score", "grade_letter", "rank"],
+          "description": "Individual subject evaluations per student per academic term."
+        },
+        {
+          "table": "subjects",
+          "columns": ["id (INT PK)", "subject_name", "subject_code", "coefficient_weight", "department"],
+          "description": "Curriculum subject catalogue and credit weight coefficients."
+        },
+        {
+          "table": "report_cards",
+          "columns": ["id (INT PK)", "student_id (FK)", "term_id (FK)", "total_points", "average_percentage", "class_rank", "teacher_remark", "generated_at"],
+          "description": "Compiled official term summaries ready for physical and digital dispatch."
+        }
+      ],
+      "demoAvailable": true
+    },
+    {
+      "id": "learnsphere-portal",
+      "title": "LearnSphere Interactive Classroom & E-Learning Portal",
+      "category": "learning",
+      "categoryLabel": "E-Learning Web Application",
+      "tagline": "Digital syllabus delivery, multimedia lessons, homework submission, and student quizzes.",
+      "description": "A modern responsive learning environment built with Vue.js and React.js to provide digital lesson plans, lecture materials, and assignment submission for secondary school students.",
+      "fullOverview": "Built as part of an advanced web application roadmap to extend school systems beyond physical classrooms. Students can access weekly lesson modules, download revision notes, submit digital assignments, and take timed practice quizzes with immediate score feedback.",
+      "image": "/src/assets/images/elearning_classroom_1791620378006.jpg",
+      "role": "Frontend & Full-Stack Developer",
+      "year": "2026",
+      "status": "Active Prototype",
+      "technologies": ["Vue.js", "React.js", "JavaScript", "Node.js", "Tailwind CSS", "REST API"],
+      "keyFeatures": [
+        "Modular lesson progress tracking with completed/current status indicators",
+        "Integrated multimedia player for instructional video tutorials",
+        "Drag-and-drop assignment upload with deadline verification",
+        "Interactive multi-choice quiz simulator with instant self-assessment",
+        "Discussion forums for student-teacher questions and clarification"
+      ],
+      "databaseSchema": [
+        {
+          "table": "courses",
+          "columns": ["id (INT PK)", "course_title", "class_level", "instructor_id (FK)", "syllabus_overview"],
+          "description": "Academic courses and syllabus structures."
+        },
+        {
+          "table": "assignments",
+          "columns": ["id (INT PK)", "course_id (FK)", "title", "due_date", "max_points", "attachment_url"],
+          "description": "Homework assignments and evaluation parameters."
+        }
+      ],
+      "demoAvailable": true
+    },
+    {
+      "id": "attendtrack-pro",
+      "title": "AttendTrack Pro - Daily Attendance & Gate Log",
+      "category": "school",
+      "categoryLabel": "Attendance & Safety",
+      "tagline": "Quick roll-call registration, absent student alerting, and monthly attendance percentage analytics.",
+      "description": "A fast, touch-friendly attendance register that enables teachers to take morning and afternoon attendance in under 60 seconds per class with automatic parent SMS notification triggers.",
+      "fullOverview": "Absenteeism directly impacts student academic success. AttendTrack Pro enables class teachers to mark attendance via phone, tablet, or desktop. It generates monthly attendance rate reports for school inspectors and flags students with consecutive unexcused absences.",
+      "image": "/src/assets/images/school_erp_dashboard_1791620350520.jpg",
+      "role": "Full-Stack Engineer",
+      "year": "2025",
+      "status": "Production Ready",
+      "technologies": ["PHP", "MySQL", "JavaScript", "Tailwind CSS", "Twilio / SMS Gateway API"],
+      "keyFeatures": [
+        "Rapid 1-tap roll call interface (Present / Late / Excused / Absent)",
+        "Daily absenteeism alerts dispatched to guardian contact numbers",
+        "Term attendance percentage calculation integrated with report cards",
+        "Medical excuse tracking with doctor certificate attachment support",
+        "School-wide daily attendance dashboard for the Headmaster"
+      ],
+      "databaseSchema": [
+        {
+          "table": "attendance_records",
+          "columns": ["id (INT PK)", "student_id (FK)", "class_id (FK)", "record_date", "status (ENUM: present, late, absent, excused)", "marked_by_teacher_id (FK)", "notes"],
+          "description": "Daily timestamped presence verification."
+        }
+      ],
+      "demoAvailable": true
+    },
+    {
+      "id": "schoolfee-manager",
+      "title": "SchoolFee Billing & Tuition Reconciliation System",
+      "category": "school",
+      "categoryLabel": "Tuition & Finance",
+      "tagline": "School fee collection, balance invoicing, installment receipts, and financial audit logs.",
+      "description": "A robust bursar financial portal built with PHP and MySQL to manage school tuition, feeding fees, boarding costs, and automated receipt generation.",
+      "fullOverview": "Simplifies bursary workflows by logging installment tuition payments, tracking pending debt balances per family, and printing stamped official payment receipts. Eliminates disputes through complete audit trails.",
+      "image": "/src/assets/images/grading_report_system_1791620363654.jpg",
+      "role": "Backend & Database Developer",
+      "year": "2025 - 2026",
+      "status": "Production Ready",
+      "technologies": ["PHP 8", "MySQL", "JavaScript", "HTML5", "CSS3", "FPDF"],
+      "keyFeatures": [
+        "Student tuition balance overview with payment installment histories",
+        "Automated official PDF receipt generation with unique receipt vouchers",
+        "Category breakdowns (Tuition, Meals, Uniforms, Exam Fees, Boarding)",
+        "Term financial reconciliation reports for school board auditing",
+        "Overdue fee reminder SMS and printable balance demand letters"
+      ],
+      "databaseSchema": [
+        {
+          "table": "fee_invoices",
+          "columns": ["id (INT PK)", "student_id (FK)", "term_id (FK)", "total_due", "amount_paid", "balance", "status"],
+          "description": "Term invoice obligations per enrolled student."
+        },
+        {
+          "table": "fee_payments",
+          "columns": ["id (INT PK)", "invoice_id (FK)", "amount", "payment_method (Bank, MobileMoney, Cash)", "reference_code", "received_by", "paid_at"],
+          "description": "Individual installment ledger entries with verified reference vouchers."
+        }
+      ],
+      "demoAvailable": true
+    },
+    {
+      "id": "mediconnect-runda",
+      "title": "MediConnect Clinic Appointment & Patient Records",
+      "category": "learning",
+      "categoryLabel": "Healthcare Web Application",
+      "tagline": "Patient triage booking, doctor schedule management, and outpatient clinic logs.",
+      "description": "A web application developed during full-stack practice to manage health clinic appointment slots, doctor availability calendars, and outpatient records.",
+      "fullOverview": "Built as a modular web application exploring multi-entity relational schemas and appointment scheduling algorithms. Features patient registration, appointment status progression, and doctor schedule conflict prevention.",
+      "image": "/src/assets/images/elearning_classroom_1791620378006.jpg",
+      "role": "Full-Stack Developer (Learning Project)",
+      "year": "2025",
+      "status": "Active Prototype",
+      "technologies": ["React.js", "JavaScript", "PHP", "MySQL", "Tailwind CSS"],
+      "keyFeatures": [
+        "Online appointment slot reservation with real-time slot conflict checks",
+        "Doctor roster and specialty filter",
+        "Outpatient visit triage notes and basic prescription logs",
+        "Administrative patient visit statistics"
+      ],
+      "databaseSchema": [
+        {
+          "table": "appointments",
+          "columns": ["id (INT PK)", "patient_name", "phone", "doctor_id (FK)", "appointment_date", "time_slot", "status"],
+          "description": "Clinic reservations and patient appointment statuses."
+        }
+      ],
+      "demoAvailable": false
+    },
+    {
+      "id": "quizmaster-engine",
+      "title": "QuizMaster Timed Academic Assessment Simulator",
+      "category": "learning",
+      "categoryLabel": "Assessment Engine",
+      "tagline": "Interactive timed exam engine with question randomization and auto-evaluation.",
+      "description": "An assessment tool created to practice state management and algorithm execution in React.js and Vue.js. Features countdown timers, question navigation, and detailed score breakdown.",
+      "fullOverview": "Engineered to assist teachers with fast formative testing. Students take multiple-choice quizzes under strict countdown timers. Once submitted, the system grades answers immediately, highlights incorrect responses, and provides explanatory feedback.",
+      "image": "/src/assets/images/grading_report_system_1791620363654.jpg",
+      "role": "Frontend Engineer (Learning Project)",
+      "year": "2026",
+      "status": "Active Prototype",
+      "technologies": ["React.js", "Vue.js", "JavaScript", "Local Storage", "CSS3"],
+      "keyFeatures": [
+        "Configurable exam countdown timer with automatic force-submission",
+        "Question navigator showing answered, flagged, and pending items",
+        "Immediate score compilation with percentage and performance feedback",
+        "Randomized question and answer order to prevent copying"
+      ],
+      "databaseSchema": [
+        {
+          "table": "quiz_questions",
+          "columns": ["id (INT PK)", "subject", "question_text", "option_a", "option_b", "option_c", "option_d", "correct_option", "explanation"],
+          "description": "Question repository and answer keys."
+        }
+      ],
+      "demoAvailable": true
+    },
+    {
+      "id": "runda-agromarket",
+      "title": "Runda AgroMarket Cooperative Exchange",
+      "category": "web-app",
+      "categoryLabel": "Community Marketplace",
+      "tagline": "Agricultural produce listing, farmer cooperative inventory, and buyer order matching.",
+      "description": "A database-driven community marketplace built for local farmers and cooperatives in Runda to list harvest yields, check market prices, and connect directly with local buyers.",
+      "fullOverview": "Developed to test end-to-end CRUD operations, search filters, and catalog indexing in PHP and MySQL. Farmers can post available harvests (beans, maize, vegetables, dairy) with current pricing and contact numbers.",
+      "image": "/src/assets/images/school_erp_dashboard_1791620350520.jpg",
+      "role": "Full-Stack Developer",
+      "year": "2025",
+      "status": "Active Prototype",
+      "technologies": ["PHP", "MySQL", "JavaScript", "HTML5", "CSS3"],
+      "keyFeatures": [
+        "Produce catalog with category filters and quantity availability",
+        "Farmer vendor profile with direct WhatsApp/phone contact integration",
+        "Real-time search across crop varieties and regional cooperative zones",
+        "Simple admin dashboard for verifying active cooperative members"
+      ],
+      "databaseSchema": [
+        {
+          "table": "products",
+          "columns": ["id (INT PK)", "farmer_id (FK)", "crop_name", "category", "quantity_kg", "price_per_kg", "harvest_date"],
+          "description": "Agricultural inventory and cooperative listings."
+        }
+      ],
+      "demoAvailable": false
+    }
+  ],
+  "lastUpdated": "2026-10-10T09:25:00Z"
+}
