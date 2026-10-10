@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { 
   GraduationCap, 
   Users, 
@@ -131,6 +131,35 @@ export function SchoolSystemDemo() {
     setTimeout(() => setSmsSentAlert(null), 6000);
   };
 
+  // Load persisted school data from database if available
+  useEffect(() => {
+    let isMounted = true;
+    fetch('/api/school')
+      .then((res) => res.json())
+      .then((data) => {
+        if (!isMounted || !data?.success) return;
+        if (Array.isArray(data.students) && data.students.length > 0) {
+          const mapped: Student[] = data.students.map((s: any) => ({
+            id: String(s.id),
+            regNo: s.regNo || s.reg_no,
+            name: s.name,
+            class: s.className || s.class_name || s.class || 'Senior 3 A',
+            guardian: s.guardian,
+            phone: s.phone,
+            tuitionTotal: s.tuitionTotal ?? s.tuition_total ?? 185000,
+            tuitionPaid: s.tuitionPaid ?? s.tuition_paid ?? 0,
+            status: s.status || 'Active',
+          }));
+          setStudents(mapped);
+        }
+      })
+      .catch((err) => console.warn('School API local fallback active:', err));
+
+    return () => {
+      isMounted = false;
+    };
+  }, []);
+
   const handleRecordPayment = (e: React.FormEvent) => {
     e.preventDefault();
     const amountNum = parseInt(paymentAmount);
@@ -144,7 +173,22 @@ export function SchoolSystemDemo() {
       return s;
     }));
 
-    setReceiptSuccess(`Official Receipt #RND-${Math.floor(100000 + Math.random() * 900000)} generated for ${amountNum.toLocaleString()} RWF via ${paymentMethod}. Balance updated!`);
+    const refCode = `REC-${Math.floor(100000 + Math.random() * 900000)}`;
+
+    // Persist payment to Netlify Postgres Database
+    fetch('/api/school', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        action: 'record-payment',
+        studentId: selectedStudent.id,
+        amount: amountNum,
+        paymentMethod,
+        referenceCode: refCode,
+      }),
+    }).catch((err) => console.warn('Failed saving payment to DB:', err));
+
+    setReceiptSuccess(`Official Receipt #${refCode} generated for ${amountNum.toLocaleString()} RWF via ${paymentMethod}. Balance updated!`);
     setTimeout(() => setReceiptSuccess(null), 5000);
   };
 
@@ -169,6 +213,24 @@ export function SchoolSystemDemo() {
     setShowAddStudent(false);
     setNewStudentName('');
     setNewStudentGuardian('');
+
+    // Persist to Netlify Postgres Database
+    fetch('/api/school', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        action: 'add-student',
+        student: {
+          regNo: newStudent.regNo,
+          name: newStudent.name,
+          className: newStudent.class,
+          guardian: newStudent.guardian,
+          phone: newStudent.phone,
+          tuitionTotal: newStudent.tuitionTotal,
+          tuitionPaid: newStudent.tuitionPaid,
+        },
+      }),
+    }).catch((err) => console.warn('Failed saving student to DB:', err));
   };
 
   const presentCount = Object.values(attendance).filter(v => v === 'present').length;
