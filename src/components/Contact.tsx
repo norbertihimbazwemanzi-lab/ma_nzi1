@@ -11,9 +11,25 @@ export function Contact() {
   const [status, setStatus] = useState<'idle' | 'sending' | 'success'>('idle');
   const [copiedEmail, setCopiedEmail] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setStatus('sending');
+
+    try {
+      await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: name.trim(),
+          email: email.trim(),
+          schoolOrOrg: schoolOrOrg.trim(),
+          projectType,
+          message: message.trim(),
+        }),
+      });
+    } catch (err) {
+      console.warn('Could not post inquiry to database endpoint:', err);
+    }
 
     setTimeout(() => {
       setStatus('success');
@@ -21,7 +37,7 @@ export function Contact() {
       const subject = encodeURIComponent(`Project Inquiry: ${projectType} - ${name} (${schoolOrOrg || 'Individual'})`);
       const body = encodeURIComponent(`Hello Norbert,\n\nMy name is ${name} from ${schoolOrOrg || 'N/A'}.\n\nProject interest: ${projectType}\nEmail: ${email}\n\nMessage:\n${message}`);
       window.location.href = `mailto:${DEVELOPER_INFO.email}?subject=${subject}&body=${body}`;
-    }, 800);
+    }, 600);
   };
 
   const handleCopyEmail = () => {
